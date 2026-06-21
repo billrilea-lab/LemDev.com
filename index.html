@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LEMdesk — same desk on any room | LEMdev</title>
+  <meta name="description" content="LEMdesk — same desk on any room. Free LAN kit for local models, agent sync, knowledge search, and session handoff. By LEMdev.">
+  <meta name="author" content="LEMdev">
+  <link rel="canonical" href="https://lemdev.com/">
+  <meta property="og:title" content="LEMdesk — same desk on any room">
+  <meta property="og:description" content="Free LAN kit for local models, agent sync, knowledge search, and session handoff. By LEMdev.">
+  <meta property="og:url" content="https://lemdev.com/">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230c0f14'/><text x='16' y='22' text-anchor='middle' font-family='system-ui' font-size='14' font-weight='700' fill='%233dd6c3'>L</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html">LEM<span>dev</span></a>
+      <button type="button" class="menu-btn" aria-label="Menu">☰</button>
+      <nav class="nav">
+        <a href="#lem-desk">LEMdesk</a>
+        <a href="#how">How it works</a>
+        <a href="#start">Get started</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="https://github.com/billrilea-lab/LemDesk" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero-badge">By LEMdev</p>
+        <h1>Same desk on any room.</h1>
+        <p class="lead">
+          <strong>LEMdesk</strong> — free LAN kit for local models, agent sync, knowledge search, and session handoff.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#start">Get LEMdesk</a>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="lem-desk">
+      <div class="wrap">
+        <h2>LEMdesk</h2>
+        <p class="section-intro">
+          LEMdesk — same desk on any room. Free LAN kit for local models, agent sync, knowledge search, and session handoff.
+        </p>
+        <div class="grid-3">
+          <article class="card">
+            <h3>One model URL</h3>
+            <p>Point every desktop at a single OpenAI-compatible endpoint on your LAN (e.g. <code>:12434/engines/v1</code>). No per-room model installs.</p>
+          </article>
+          <article class="card">
+            <h3>Auto knowledge</h3>
+            <p>Refresh a local search corpus in seconds. MCP tools in Cursor query your docs—not the cloud.</p>
+          </article>
+          <article class="card">
+            <h3>Session handoff</h3>
+            <p>Write a handoff file before you leave a desk. Open it on the next machine and continue the same thread.</p>
+          </article>
+          <article class="card">
+            <h3>Agent sync</h3>
+            <p>Paths and guides for syncing skills, rules, and MCP configs across tools on your machines.</p>
+          </article>
+          <article class="card">
+            <h3>Optional shared chat</h3>
+            <p>Run a browser UI on your model server so chat history lives on the network, not one laptop.</p>
+          </article>
+          <article class="card">
+            <h3>Local supervisor</h3>
+            <p>Multi-agent YAML + RAG over your own markdown corpus—your stack, your machine.</p>
+          </article>
+        </div>
+        <div class="flow">
+          <span>Model server</span>
+          <span class="arrow">→</span>
+          <span>LAN</span>
+          <span class="arrow">→</span>
+          <span>Cursor / Claude</span>
+          <span class="arrow">→</span>
+          <span>LEMdesk sync</span>
+          <span class="arrow">→</span>
+          <span>Next room</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <h2>How it works</h2>
+        <p class="section-intro">Static scripts and Python—no SaaS, no mandatory cloud. You own the files on your network.</p>
+        <ol class="steps">
+          <li>
+            <div>
+              <strong>Run models once</strong>
+              <p>Enable a local OpenAI-compatible API on your home server (many people use a desktop container runtime with a model runner).</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Sync the desk</strong>
+              <p>One command refreshes knowledge, RAG exports, runbooks, and a session handoff template.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Connect each client</strong>
+              <p>Set your editor’s base URL to the server IP. Add the LEMdesk MCP server for local doc search.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Move rooms</strong>
+              <p>Update handoff, open the same repo, same settings, same local model—pick up where you left off.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="start">
+      <div class="wrap">
+        <h2>Get started</h2>
+        <p class="section-intro">Clone the repo, run the auto pipeline, open the handoff doc.</p>
+        <div class="pre-wrap">
+          <pre># Clone LEMdesk (LEMdev)
+git clone https://github.com/billrilea-lab/LemDesk.git
+cd LemDesk
+
+# One-shot: knowledge + RAG + briefs + handoff
+python3 bot.py lemdesk-sync --fast
+
+# Or the shell wrapper
+./lemdesk/scripts/lemdesk_auto.sh --fast
+
+# Point Cursor: Override OpenAI Base URL
+# http://&lt;server-ip&gt;:12434/engines/v1
+# API key: not-needed</pre>
+        </div>
+        <p style="margin-top:1.25rem;color:var(--muted);font-size:0.9rem;">
+          Requirements: Python 3.10+, a machine that can serve local models, and clients on the same trusted LAN.
+          See the repo README for MCP setup and optional shared chat UI.
+        </p>
+        <p style="margin-top:1rem;">
+          <a class="btn btn-primary" href="https://github.com/billrilea-lab/LemDesk" rel="noopener">View on GitHub</a>
+        </p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="wrap">
+        <h2>FAQ</h2>
+        <dl class="faq">
+          <dt>Is LEMdesk a cloud service?</dt>
+          <dd>No. Everything runs on your machines. LEMdev provides scripts and templates you run yourself.</dd>
+
+          <dt>Does it replace Cursor or Claude?</dt>
+          <dd>No. It wires your existing tools to <em>your</em> local model and <em>your</em> local knowledge.</dd>
+
+          <dt>Is it affiliated with Docker or any AI vendor?</dt>
+          <dd>No. LEMdesk is an independent project from LEMdev. Videos may mention third-party tools you choose to use.</dd>
+
+          <dt>What does it cost?</dt>
+          <dd>The kit is free. You may pay for hardware, electricity, and optional hosting—never per-blink fees from us.</dd>
+
+          <dt>Is chat history synced in Cursor?</dt>
+          <dd>Not natively. LEMdesk adds handoff files, optional shared browser chat on your server, and config sync—not full Cursor cloud parity.</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div>
+        <strong>LEMdev</strong> · LEMdesk<br>
+        <a href="mailto:hello@lemdev.com">hello@lemdev.com</a>
+      </div>
+      <div>
+        © 2026 LEMdev. Independent project—not affiliated with Docker, Cursor, Anthropic, or OpenAI.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
