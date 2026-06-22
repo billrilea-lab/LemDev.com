@@ -101,4 +101,32 @@
       { passive: true }
     );
   }
+
+  var terminalTabs = document.querySelectorAll(".terminal-tab");
+  if (terminalTabs.length) {
+    terminalTabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var target = tab.getAttribute("data-terminal");
+        terminalTabs.forEach(function (t) {
+          t.classList.toggle("active", t === tab);
+          t.setAttribute("aria-selected", t === tab ? "true" : "false");
+        });
+        ["starter", "pro"].forEach(function (id) {
+          var el = document.getElementById("terminal-" + id);
+          if (!el) return;
+          var show = id === target;
+          el.hidden = !show;
+          el.classList.toggle("terminal-hidden", !show);
+        });
+      });
+    });
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var flip = false;
+      setInterval(function () {
+        flip = !flip;
+        var next = document.querySelector('.terminal-tab[data-terminal="' + (flip ? "pro" : "starter") + '"]');
+        if (next) next.click();
+      }, 8000);
+    }
+  }
 })();

@@ -28,11 +28,17 @@
   </header>
 
   <main id="main">
+    <div id="live-desk-banner" class="live-desk-banner" hidden>
+      <div class="wrap">
+        <span>● Pro desk detected on this machine</span>
+        <a href="http://127.0.0.1:8765/" target="_blank" rel="noopener">Open live dashboard →</a>
+      </div>
+    </div>
     <section class="hero hero-compact">
       <div class="wrap">
-        <p class="hero-badge reveal">60-second demo</p>
-        <h1 class="reveal">Show your friends<br><span class="gradient-text">the desk that follows you.</span></h1>
-        <p class="lead reveal">Three commands. Menu bar health score. Paste-ready Smart Handoff. No cloud required.</p>
+        <p class="hero-badge reveal">Starter → Pro in 60 seconds</p>
+        <h1 class="reveal">Show them the sample.<br><span class="gradient-text">Then show them Pro.</span></h1>
+        <p class="lead reveal">Starter proves local desk sync works from the terminal. Pro is the menu bar moment—live health score, Smart Handoff, dashboard. That's what makes people say "wait, you built that?"</p>
       </div>
     </section>
 
@@ -42,17 +48,23 @@
           <article class="demo-step">
             <span class="demo-num">1</span>
             <div>
-              <h3>Clone & sync</h3>
+              <h3>Starter — clone & sync</h3>
+              <p class="demo-caption" style="margin-top:0;margin-bottom:0.75rem">The free sample kit. Run this first so the corpus exists.</p>
               <pre class="code-block"><code>git clone https://github.com/billrilea-lab/LemDesk.git
 cd LemDesk
 pip install -r requirements.txt
 python3 lemdesk_auto.py --fast --skip-dmr-check</code></pre>
+              <button type="button" class="copy-btn copy-btn-inline" data-copy="git clone https://github.com/billrilea-lab/LemDesk.git
+cd LemDesk
+pip install -r requirements.txt
+python3 lemdesk_auto.py --fast --skip-dmr-check">Copy</button>
             </div>
           </article>
           <article class="demo-step">
             <span class="demo-num">2</span>
             <div>
-              <h3>Launch Pro</h3>
+              <h3>Pro — launch the menu bar</h3>
+              <p class="demo-caption" style="margin-top:0;margin-bottom:0.75rem">This is the wow moment. Live score in your menu bar.</p>
               <pre class="code-block"><code>pip install rumps httpx
 python3 -m lemdesk_pro menubar</code></pre>
               <p class="demo-caption">Menu bar shows live health score. Dashboard opens at <code>http://127.0.0.1:8765</code></p>
@@ -61,7 +73,8 @@ python3 -m lemdesk_pro menubar</code></pre>
           <article class="demo-step">
             <span class="demo-num">3</span>
             <div>
-              <h3>Smart Handoff</h3>
+              <h3>Pro — Smart Handoff</h3>
+              <p class="demo-caption" style="margin-top:0;margin-bottom:0.75rem">Structured desk pack + paste-ready prompt. Starter only gives you a blank markdown file.</p>
               <pre class="code-block"><code>python3 -m lemdesk_pro smart-handoff
 # → lemdesk/logs/desk_handoff_prompt.md</code></pre>
               <p class="demo-caption">Paste the prompt into Cursor in your other room. Agent picks up where you left off.</p>
@@ -106,7 +119,7 @@ python3 -m lemdesk_pro menubar</code></pre>
       <div class="wrap cta-inner reveal">
         <div>
           <h2>Ready to impress?</h2>
-          <p>Free OSS core. Pro adds the menu bar and Smart Handoff polish.</p>
+          <p>Starter is the sample they can clone tonight. Pro is what they'll pay for.</p>
         </div>
         <div class="cta-actions">
           <a class="btn btn-primary btn-lg" href="/pricing.html">Join Pro waitlist</a>
@@ -136,5 +149,6 @@ python3 -m lemdesk_pro menubar</code></pre>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/demo.js"></script>
 </body>
 </html>

@@ -4,18 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LEMdesk — same desk on any room | LEMdev</title>
-  <meta name="description" content="LEMdesk — same desk on any room. Free LAN kit for local models, agent sync, knowledge search, and session handoff. By LEMdev.">
+  <meta name="description" content="LEMdesk Starter is the free sample kit. LEMdesk Pro is the full desk — menu bar health, Smart Handoff, and live dashboard. By LEMdev.">
   <meta name="author" content="LEMdev">
   <meta name="theme-color" content="#0c0f14">
   <link rel="canonical" href="https://lemdev.com/">
   <meta property="og:title" content="LEMdesk — same desk on any room">
-  <meta property="og:description" content="Free LAN kit for local models, agent sync, knowledge search, and session handoff. Your desk, every room.">
+  <meta property="og:description" content="Starter is the free sample kit. Pro is the full desk — menu bar health, Smart Handoff, live dashboard.">
   <meta property="og:url" content="https://lemdev.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="LEMdev">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LEMdesk — same desk on any room">
-  <meta name="twitter:description" content="Free LAN kit for local AI. Sync models, knowledge, and session handoff across every machine on your network.">
+  <meta name="twitter:description" content="Starter proves local AI sync works. Pro runs your desk — menu bar health, Smart Handoff, dashboard.">
   <meta property="og:image" content="https://lemdev.com/assets/og-cover.svg">
   <meta name="twitter:image" content="https://lemdev.com/assets/og-cover.svg">
   <link rel="preload" href="css/style.css" as="style">
@@ -28,10 +28,13 @@
     "name": "LEMdesk",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "macOS, Linux, Windows",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Starter sample kit + Pro desk health, Smart Handoff, and menu bar for local AI across rooms.",
+    "offers": [
+      { "@type": "Offer", "name": "Starter", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Pro", "price": "19", "priceCurrency": "USD", "priceValidUntil": "2026-12-31" }
+    ],
     "author": { "@type": "Organization", "name": "LEMdev", "url": "https://lemdev.com" },
-    "codeRepository": "https://github.com/billrilea-lab/LemDesk",
-    "description": "Free LAN kit for local models, agent sync, knowledge search, and session handoff."
+    "codeRepository": "https://github.com/billrilea-lab/LemDesk"
   }
   </script>
 </head>
@@ -47,12 +50,11 @@
         <a href="#features" data-nav>Features</a>
         <a href="#rooms" data-nav>Rooms</a>
         <a href="#how" data-nav>How it works</a>
-        <a href="#compare" data-nav>Why local</a>
+        <a href="#pro" data-nav>Starter vs Pro</a>
         <a href="#start" data-nav>Get started</a>
         <a href="#faq" data-nav>FAQ</a>
-        <a href="/pricing.html">Pro</a>
         <a href="/demo.html">Demo</a>
-        <a class="nav-cta" href="https://github.com/billrilea-lab/LemDesk" rel="noopener noreferrer">GitHub ↗</a>
+        <a class="nav-cta" href="/pricing.html#waitlist">Join Pro →</a>
       </nav>
     </div>
   </header>
@@ -61,19 +63,20 @@
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy reveal">
-          <p class="hero-badge">Open source · LAN-first · Free</p>
+          <p class="hero-badge">Starter kit free · Pro runs the desk</p>
           <h1>Same desk.<br><span class="gradient-text">Any room.</span></h1>
           <p class="lead">
-            <strong>LEMdesk</strong> wires your local models, Cursor agents, and knowledge corpus across every machine on your network—no cloud lock-in, no per-seat fees.
+            <strong>LEMdesk Starter</strong> is the open-source sample—scripts, MCP, and a markdown handoff so you can try local AI sync in one afternoon.
+            <strong>LEMdesk Pro</strong> is the real product: menu bar health, Smart Handoff desk packs, and a live dashboard that keeps your desk wired across every room.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary btn-lg" href="#start">Get LEMdesk free</a>
-            <a class="btn btn-ghost btn-lg" href="/pricing.html">LEMdesk Pro →</a>
-            <a class="btn btn-ghost btn-lg" href="https://github.com/billrilea-lab/LemDesk" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-primary btn-lg" href="/pricing.html">Get LEMdesk Pro →</a>
+            <a class="btn btn-ghost btn-lg" href="#start">Try Starter free</a>
+            <a class="btn btn-ghost btn-lg" href="/demo.html">See demo</a>
           </div>
           <ul class="hero-stats">
-            <li><strong>$0</strong><span>software cost</span></li>
-            <li><strong>100%</strong><span>your hardware</span></li>
+            <li><strong>Starter</strong><span>sample kit · $0</span></li>
+            <li><strong>Pro</strong><span>menu bar + health</span></li>
             <li><strong>1 cmd</strong><span>full desk sync</span></li>
           </ul>
           <div class="stack-badges reveal" aria-label="Compatible with">
@@ -87,28 +90,82 @@
         <div class="hero-terminal reveal reveal-delay" aria-label="Example workflow">
           <div class="terminal-chrome">
             <span></span><span></span><span></span>
-            <em>lemdesk-sync</em>
+            <div class="terminal-tabs" role="tablist">
+              <button type="button" class="terminal-tab active" data-terminal="starter" role="tab" aria-selected="true">Starter</button>
+              <button type="button" class="terminal-tab" data-terminal="pro" role="tab" aria-selected="false">Pro</button>
+            </div>
             <span class="terminal-live" aria-hidden="true">● live</span>
           </div>
-          <pre class="terminal-body"><code><span class="t-line">$ git clone git@github.com:billrilea-lab/LemDesk.git</span>
-<span class="t-line">$ ./lemdesk/scripts/lemdesk_auto.sh --fast</span>
+          <pre class="terminal-body" id="terminal-starter"><code><span class="t-line">$ git clone github.com/billrilea-lab/LemDesk.git</span>
+<span class="t-line">$ python3 lemdesk_auto.py --fast --skip-dmr-check</span>
 <span class="t-line t-dim">&nbsp;</span>
 <span class="t-line t-ok">✓ knowledge corpus refreshed</span>
 <span class="t-line t-ok">✓ RAG index rebuilt</span>
-<span class="t-line t-ok">✓ handoff.md ready for next room</span>
-<span class="t-line t-ok">✓ MCP server listening on LAN</span>
+<span class="t-line t-warn">✓ handoff.md — edit by hand</span>
+<span class="t-line t-ok">✓ MCP server ready for Cursor</span>
 <span class="t-line t-dim">&nbsp;</span>
-<span class="t-line t-accent">→ Cursor base URL: http://192.168.1.50:12434/v1</span>
-<span class="t-line t-accent">→ Pick up in the office. Same thread.</span></code></pre>
+<span class="t-line t-accent">→ Sample kit ready. Try it free.</span></code></pre>
+          <pre class="terminal-body terminal-hidden" id="terminal-pro" hidden><code><span class="t-line">$ python3 -m lemdesk_pro menubar</span>
+<span class="t-line t-dim">&nbsp;</span>
+<span class="t-line t-ok">✓ menu bar health: 87/100 (A)</span>
+<span class="t-line t-ok">✓ dashboard → http://127.0.0.1:8765</span>
+<span class="t-line t-ok">✓ DMR · RAG · MCP · handoff — all green</span>
+<span class="t-line t-dim">&nbsp;</span>
+<span class="t-line">$ python3 -m lemdesk_pro smart-handoff</span>
+<span class="t-line t-ok">✓ desk pack + paste-ready agent prompt</span>
+<span class="t-line t-dim">&nbsp;</span>
+<span class="t-line t-accent">→ Open Cursor in the office. Same thread.</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="pro" class="pro-banner section-alt">
+      <div class="wrap pro-banner-grid reveal">
+        <div>
+          <p class="eyebrow">Starter → Pro</p>
+          <h2>The sample got you hooked.<br>Pro runs the desk.</h2>
+          <p class="section-intro">Starter proves local sync works—terminal scripts, MCP search, a handoff file you edit by hand. Pro is what you actually live in: live health score, one-click Smart Handoff, menu bar sync, and a dashboard your friends will ask about.</p>
+        </div>
+        <div class="pro-contrast">
+          <div class="pro-contrast-col">
+            <h3>Starter <span class="pro-tag sample">Sample</span></h3>
+            <div class="power-bars" aria-hidden="true">
+              <div class="power-bar"><span>Sync</span><div class="track"><i style="width:70%"></i></div></div>
+              <div class="power-bar"><span>Handoff</span><div class="track"><i style="width:35%"></i></div></div>
+              <div class="power-bar"><span>Visibility</span><div class="track"><i style="width:20%"></i></div></div>
+            </div>
+            <ul>
+              <li>CLI sync + RAG corpus</li>
+              <li>MCP doc search in Cursor</li>
+              <li>Manual session handoff .md</li>
+              <li>Supervisor scripts</li>
+            </ul>
+            <a class="btn btn-ghost btn-block" href="#start">Try Starter free</a>
+          </div>
+          <div class="pro-contrast-col pro-contrast-featured">
+            <h3>Pro <span class="pro-tag power">Full power</span></h3>
+            <div class="power-bars pro-bars" aria-hidden="true">
+              <div class="power-bar"><span>Sync</span><div class="track"><i style="width:100%"></i></div></div>
+              <div class="power-bar"><span>Handoff</span><div class="track"><i style="width:100%"></i></div></div>
+              <div class="power-bar"><span>Visibility</span><div class="track"><i style="width:100%"></i></div></div>
+            </div>
+            <ul>
+              <li><strong>Menu bar</strong> — live desk health</li>
+              <li><strong>Smart Handoff</strong> — paste-ready agent prompt</li>
+              <li><strong>Dashboard</strong> — DMR, RAG, MCP at a glance</li>
+              <li>One-click sync from the menu bar</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="/pricing.html">Join Pro waitlist</a>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="features" class="section-alt">
       <div class="wrap">
-        <p class="eyebrow reveal">LEMdesk</p>
-        <h2 class="reveal">Everything your desk needs—on your LAN</h2>
-        <p class="section-intro reveal">One model server. Every client. Synced skills, docs, and session context across rooms.</p>
+        <p class="eyebrow reveal">LEMdesk Starter</p>
+        <h2 class="reveal">What the sample kit includes</h2>
+        <p class="section-intro reveal">Everything below ships free in the Starter repo. Pro layers menu bar health and Smart Handoff on top—same LAN, same data, much less friction.</p>
         <div class="grid-3">
           <article class="card reveal">
             <div class="card-icon" aria-hidden="true">◎</div>
@@ -165,13 +222,13 @@
             <div class="room-label">Room 1</div>
             <h3>Home studio</h3>
             <p>Spin up the model server. Run <code>lemdesk-sync</code>. Deep work with local RAG over your docs.</p>
-            <div class="room-file">handoff.md → saved</div>
+            <div class="room-file">handoff.md → saved <span class="pro-plus">· Pro: Smart Handoff</span></div>
           </article>
           <article class="room-card room-active reveal">
             <div class="room-label">Room 2</div>
             <h3>Office desk</h3>
             <p>Open the same repo. Paste the handoff. Cursor hits the same LAN endpoint—zero re-setup.</p>
-            <div class="room-file">handoff.md → loaded</div>
+            <div class="room-file">Smart Handoff → loaded</div>
           </article>
           <article class="room-card reveal">
             <div class="room-label">Room 3</div>
@@ -269,37 +326,37 @@
         <div class="code-block reveal">
           <div class="code-header">
             <span>Terminal</span>
-            <button type="button" class="copy-btn" data-copy="# Clone LEMdesk (LEMdev)
+            <button type="button" class="copy-btn" data-copy="# Clone LEMdesk Starter (free sample)
 git clone https://github.com/billrilea-lab/LemDesk.git
 cd LemDesk
+pip install -r requirements.txt
 
-# One-shot: knowledge + RAG + briefs + handoff
-python3 bot.py lemdesk-sync --fast
+# Starter: one-shot sync
+python3 lemdesk_auto.py --fast --skip-dmr-check
 
-# Or the shell wrapper
-./lemdesk/scripts/lemdesk_auto.sh --fast
+# Pro: menu bar + dashboard
+python3 -m lemdesk_pro menubar
 
-# Point Cursor: Override OpenAI Base URL
-# http://&lt;server-ip&gt;:12434/engines/v1
-# API key: not-needed">Copy</button>
+# Cursor OpenAI Base URL: http://&lt;server-ip&gt;:12434/engines/v1">Copy</button>
           </div>
-          <pre><code># Clone LEMdesk (LEMdev)
+          <pre><code># Clone LEMdesk Starter (free sample)
 git clone https://github.com/billrilea-lab/LemDesk.git
 cd LemDesk
+pip install -r requirements.txt
 
-# One-shot: knowledge + RAG + briefs + handoff
-python3 bot.py lemdesk-sync --fast
+# Starter: one-shot sync
+python3 lemdesk_auto.py --fast --skip-dmr-check
 
-# Or the shell wrapper
-./lemdesk/scripts/lemdesk_auto.sh --fast
+# Pro: menu bar + dashboard (after Starter sync)
+python3 -m lemdesk_pro menubar
 
-# Point Cursor: Override OpenAI Base URL
-# http://&lt;server-ip&gt;:12434/engines/v1
-# API key: not-needed</code></pre>
+# Point Cursor → OpenAI Base URL
+# http://&lt;server-ip&gt;:12434/engines/v1</code></pre>
         </div>
         <div class="start-actions reveal">
-          <a class="btn btn-primary btn-lg" href="https://github.com/billrilea-lab/LemDesk" rel="noopener noreferrer">Star on GitHub</a>
-          <a class="btn btn-ghost btn-lg" href="mailto:hello@lemdev.com">hello@lemdev.com</a>
+          <a class="btn btn-primary btn-lg" href="/pricing.html#waitlist">Join Pro waitlist</a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/billrilea-lab/LemDesk" rel="noopener noreferrer">Clone Starter free</a>
+          <a class="btn btn-ghost btn-lg" href="/demo.html">See demo</a>
         </div>
       </div>
     </section>
@@ -322,8 +379,12 @@ python3 bot.py lemdesk-sync --fast
             <p>No. LEMdesk is an independent project from LEMdev. You choose which third-party tools to use.</p>
           </details>
           <details class="faq-item">
+            <summary>What's the difference between Starter and Pro?</summary>
+            <p><strong>Starter</strong> is the free sample kit—CLI scripts, MCP, manual handoff markdown. It proves local desk sync works. <strong>Pro</strong> is the daily driver: menu bar health score, Smart Handoff desk packs, local dashboard, and one-click sync. Same open core; Pro adds the polish you actually live in.</p>
+          </details>
+          <details class="faq-item">
             <summary>What does it cost?</summary>
-            <p>The open-source kit is free forever. <a href="/pricing.html">LEMdesk Pro</a> ($19/mo, waitlist open) adds menu bar health, Smart Handoff, and a local dashboard.</p>
+            <p>Starter stays free forever. <a href="/pricing.html">LEMdesk Pro</a> is $19/mo (waitlist open)—founding members lock in that price.</p>
           </details>
           <details class="faq-item">
             <summary>Is chat history synced in Cursor?</summary>
@@ -336,10 +397,10 @@ python3 bot.py lemdesk-sync --fast
     <section class="cta-banner">
       <div class="wrap cta-inner reveal">
         <div>
-          <h2>Ready to desk-hop?</h2>
-          <p>Free, open source, and built for developers who work in more than one room.</p>
+          <h2>Ready to upgrade?</h2>
+          <p>Starter is the sample. Pro is the desk you show your friends.</p>
         </div>
-        <a class="btn btn-primary btn-lg" href="https://github.com/billrilea-lab/LemDesk" rel="noopener noreferrer">Get LEMdesk →</a>
+        <a class="btn btn-primary btn-lg" href="/pricing.html">LEMdesk Pro →</a>
       </div>
     </section>
   </main>
