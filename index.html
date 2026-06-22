@@ -16,10 +16,27 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="LEMdesk — same desk on any room">
   <meta name="twitter:description" content="Free LAN kit for local AI. Sync models, knowledge, and session handoff across every machine on your network.">
+  <meta property="og:image" content="https://lemdev.com/assets/og-cover.svg">
+  <meta name="twitter:image" content="https://lemdev.com/assets/og-cover.svg">
+  <link rel="preload" href="css/style.css" as="style">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230c0f14'/><text x='16' y='22' text-anchor='middle' font-family='system-ui' font-size='14' font-weight='700' fill='%233dd6c3'>L</text></svg>">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "LEMdesk",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS, Linux, Windows",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Organization", "name": "LEMdev", "url": "https://lemdev.com" },
+    "codeRepository": "https://github.com/billrilea-lab/LemDesk",
+    "description": "Free LAN kit for local models, agent sync, knowledge search, and session handoff."
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="bg-glow" aria-hidden="true"></div>
 
   <header class="site-header">
@@ -27,17 +44,18 @@
       <a class="logo" href="/">LEM<span>dev</span></a>
       <button type="button" class="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
       <nav class="nav">
-        <a href="#features">Features</a>
-        <a href="#how">How it works</a>
-        <a href="#compare">Why local</a>
-        <a href="#start">Get started</a>
-        <a href="#faq">FAQ</a>
+        <a href="#features" data-nav>Features</a>
+        <a href="#rooms" data-nav>Rooms</a>
+        <a href="#how" data-nav>How it works</a>
+        <a href="#compare" data-nav>Why local</a>
+        <a href="#start" data-nav>Get started</a>
+        <a href="#faq" data-nav>FAQ</a>
         <a class="nav-cta" href="https://github.com/billrilea-lab/LemDesk" rel="noopener noreferrer">GitHub ↗</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="hero">
       <div class="wrap hero-grid">
         <div class="hero-copy reveal">
@@ -55,22 +73,30 @@
             <li><strong>100%</strong><span>your hardware</span></li>
             <li><strong>1 cmd</strong><span>full desk sync</span></li>
           </ul>
+          <div class="stack-badges reveal" aria-label="Compatible with">
+            <span>Python</span>
+            <span>Cursor</span>
+            <span>MCP</span>
+            <span>OpenAI-compatible</span>
+            <span>LAN-only</span>
+          </div>
         </div>
         <div class="hero-terminal reveal reveal-delay" aria-label="Example workflow">
           <div class="terminal-chrome">
             <span></span><span></span><span></span>
             <em>lemdesk-sync</em>
+            <span class="terminal-live" aria-hidden="true">● live</span>
           </div>
-          <pre class="terminal-body"><code><span class="t-dim">$</span> git clone git@github.com:billrilea-lab/LemDesk.git
-<span class="t-dim">$</span> ./lemdesk/scripts/lemdesk_auto.sh --fast
-
-<span class="t-ok">✓</span> knowledge corpus refreshed
-<span class="t-ok">✓</span> RAG index rebuilt
-<span class="t-ok">✓</span> handoff.md ready for next room
-<span class="t-ok">✓</span> MCP server listening on LAN
-
-<span class="t-accent">→</span> Cursor base URL: http://192.168.1.50:12434/v1
-<span class="t-accent">→</span> Pick up in the office. Same thread.</code></pre>
+          <pre class="terminal-body"><code><span class="t-line">$ git clone git@github.com:billrilea-lab/LemDesk.git</span>
+<span class="t-line">$ ./lemdesk/scripts/lemdesk_auto.sh --fast</span>
+<span class="t-line t-dim">&nbsp;</span>
+<span class="t-line t-ok">✓ knowledge corpus refreshed</span>
+<span class="t-line t-ok">✓ RAG index rebuilt</span>
+<span class="t-line t-ok">✓ handoff.md ready for next room</span>
+<span class="t-line t-ok">✓ MCP server listening on LAN</span>
+<span class="t-line t-dim">&nbsp;</span>
+<span class="t-line t-accent">→ Cursor base URL: http://192.168.1.50:12434/v1</span>
+<span class="t-line t-accent">→ Pick up in the office. Same thread.</span></code></pre>
         </div>
       </div>
     </section>
@@ -122,6 +148,34 @@
           <span>LEMdesk sync</span>
           <span class="arrow">→</span>
           <span>Next room</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="rooms">
+      <div class="wrap">
+        <p class="eyebrow reveal">Multi-room</p>
+        <h2 class="reveal">Three desks. One thread.</h2>
+        <p class="section-intro reveal">Start in the studio, refine at the office, ship from the laptop—all on the same local model and handoff file.</p>
+        <div class="rooms-grid">
+          <article class="room-card reveal">
+            <div class="room-label">Room 1</div>
+            <h3>Home studio</h3>
+            <p>Spin up the model server. Run <code>lemdesk-sync</code>. Deep work with local RAG over your docs.</p>
+            <div class="room-file">handoff.md → saved</div>
+          </article>
+          <article class="room-card room-active reveal">
+            <div class="room-label">Room 2</div>
+            <h3>Office desk</h3>
+            <p>Open the same repo. Paste the handoff. Cursor hits the same LAN endpoint—zero re-setup.</p>
+            <div class="room-file">handoff.md → loaded</div>
+          </article>
+          <article class="room-card reveal">
+            <div class="room-label">Room 3</div>
+            <h3>Travel laptop</h3>
+            <p>VPN or LAN extend. Same skills, same MCP config, same model URL. Continue the thread.</p>
+            <div class="room-file">handoff.md → updated</div>
+          </article>
         </div>
       </div>
     </section>
@@ -187,6 +241,11 @@
           </div>
           <div class="compare-row">
             <span>Session handoff file</span>
+            <span class="no">✕</span>
+            <span class="yes">✓</span>
+          </div>
+          <div class="compare-row">
+            <span>Open source</span>
             <span class="no">✕</span>
             <span class="yes">✓</span>
           </div>
@@ -292,6 +351,7 @@ python3 bot.py lemdesk-sync --fast
       <div class="footer-links">
         <strong>Product</strong>
         <a href="#features">Features</a>
+        <a href="#rooms">Rooms</a>
         <a href="#start">Get started</a>
         <a href="https://github.com/billrilea-lab/LemDesk" rel="noopener noreferrer">GitHub</a>
       </div>
