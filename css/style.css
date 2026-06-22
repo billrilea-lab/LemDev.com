@@ -1529,3 +1529,107 @@ section h2 {
   border-color: var(--accent);
   color: var(--accent);
 }
+
+/* Problem / audience / marketing sections */
+.pain-grid,
+.who-grid,
+.gtm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pain-card,
+.who-card,
+.gtm-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.pain-card h3,
+.who-card h3,
+.gtm-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.pain-card p,
+.who-card p,
+.gtm-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.problem-solution {
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  background: var(--accent-glow);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.95rem;
+}
+
+.compare-note {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.gtm-num {
+  display: inline-block;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 800;
+  font-size: 0.85rem;
+  line-height: 1.75rem;
+  text-align: center;
+  margin-bottom: 0.65rem;
+}
+
+.pitch-quote {
+  margin: 1rem 0 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-card);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  font-style: italic;
+}
+
+.pitch-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pitch-bullets li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.pitch-bullets li:last-child {
+  border-bottom: none;
+}
+
+.card p strong {
+  color: var(--accent);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cta-inner .cta-actions {
+  flex-shrink: 0;
+}
