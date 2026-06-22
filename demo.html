@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LEMdesk Pro — Live Demo | LEMdev</title>
+  <meta name="description" content="See LEMdesk Pro in action — menu bar health score, Smart Handoff, and local desk dashboard.">
+  <meta name="theme-color" content="#0c0f14">
+  <link rel="canonical" href="https://lemdev.com/demo.html">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230c0f14'/><text x='16' y='22' text-anchor='middle' font-family='system-ui' font-size='14' font-weight='700' fill='%233dd6c3'>L</text></svg>">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="/">LEM<span>dev</span></a>
+      <button type="button" class="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/demo.html" class="nav-active">Demo</a>
+        <a href="/pricing.html">Pricing</a>
+        <a class="nav-cta" href="https://github.com/billrilea-lab/LemDesk" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero hero-compact">
+      <div class="wrap">
+        <p class="hero-badge reveal">60-second demo</p>
+        <h1 class="reveal">Show your friends<br><span class="gradient-text">the desk that follows you.</span></h1>
+        <p class="lead reveal">Three commands. Menu bar health score. Paste-ready Smart Handoff. No cloud required.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="demo-steps reveal">
+          <article class="demo-step">
+            <span class="demo-num">1</span>
+            <div>
+              <h3>Clone & sync</h3>
+              <pre class="code-block"><code>git clone https://github.com/billrilea-lab/LemDesk.git
+cd LemDesk
+pip install -r requirements.txt
+python3 lemdesk_auto.py --fast --skip-dmr-check</code></pre>
+            </div>
+          </article>
+          <article class="demo-step">
+            <span class="demo-num">2</span>
+            <div>
+              <h3>Launch Pro</h3>
+              <pre class="code-block"><code>pip install rumps httpx
+python3 -m lemdesk_pro menubar</code></pre>
+              <p class="demo-caption">Menu bar shows live health score. Dashboard opens at <code>http://127.0.0.1:8765</code></p>
+            </div>
+          </article>
+          <article class="demo-step">
+            <span class="demo-num">3</span>
+            <div>
+              <h3>Smart Handoff</h3>
+              <pre class="code-block"><code>python3 -m lemdesk_pro smart-handoff
+# → lemdesk/logs/desk_handoff_prompt.md</code></pre>
+              <p class="demo-caption">Paste the prompt into Cursor in your other room. Agent picks up where you left off.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt">
+      <div class="wrap">
+        <p class="eyebrow reveal">What they'll see</p>
+        <h2 class="reveal">Desk Health dashboard</h2>
+        <div class="demo-preview reveal">
+          <div class="demo-mock">
+            <div class="demo-mock-bar">
+              <span class="demo-dot"></span><span class="demo-dot"></span><span class="demo-dot"></span>
+              <span class="demo-url">127.0.0.1:8765</span>
+            </div>
+            <div class="demo-mock-body">
+              <div class="demo-score">
+                <div class="demo-ring"><span>87</span><small>A</small></div>
+                <div>
+                  <strong>Desk is production-ready</strong>
+                  <p>DMR · RAG · MCP · Handoff all green</p>
+                </div>
+              </div>
+              <div class="demo-cards">
+                <div class="demo-card ok"><small>ok</small> Docker Model Runner</div>
+                <div class="demo-card ok"><small>ok</small> Knowledge corpus</div>
+                <div class="demo-card ok"><small>ok</small> RAG index</div>
+                <div class="demo-card warn"><small>warn</small> Session handoff</div>
+              </div>
+            </div>
+          </div>
+          <p class="demo-caption center">Live data from your machine — not a mockup when Pro is running.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="wrap cta-inner reveal">
+        <div>
+          <h2>Ready to impress?</h2>
+          <p>Free OSS core. Pro adds the menu bar and Smart Handoff polish.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="/pricing.html">Join Pro waitlist</a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/billrilea-lab/LemDesk" rel="noopener noreferrer">Clone repo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="/">LEM<span>dev</span></a>
+        <p>Independent tools for local AI workflows.</p>
+      </div>
+      <div class="footer-links">
+        <strong>Product</strong>
+        <a href="/">Home</a>
+        <a href="/demo.html">Demo</a>
+        <a href="/pricing.html">Pricing</a>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>© 2026 LEMdev</span>
+      <span>lemdev.com</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
